@@ -14,6 +14,9 @@
 
 #define kFormDetailCellIdentifier @"FormDetailCell"
 #define kFormEditCellIdentifier @"FormEditCell"
+#define kBAFlightCalculatorURL @"http://www.britishairways.com/travel/flight-calculator/public/en_gb"
+
+typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *error);
 
 @interface SCFormViewController () <TierSegue, AirlineSegue, FareSegue, UITextFieldDelegate>
 
@@ -111,7 +114,80 @@
 }
 
 - (void)travelClassViewController:(SCTravelClassViewController *)viewController didSelectFareCode:(NSString *)code {
+	self.fareCode = code;
+}
+
+#pragma mark - NSURLSession Connection
+
+- (IBAction)requestTierPointsAndAvios:(id)sender {
+	NSString *departureAirport = @"LHR";
+	NSString *arrivalAirport = @"SYD";
+	NSString *airlineCode = @"BA";//self.airlineDetails[@"Airlines"][self.selectedAirline][@"Code"];
+	NSString *fareCode = @"J";//self.fareCode;
+	NSString *tier = @"Gold";
 	
+	NSString *urlString = [NSString stringWithFormat:@"%@?eId=199001&marketingAirline=%@&tier=%@&departureAirportFull=%@&departureAirport=%@&arrivalAirportFull=%@&arrivalAirport=%@&airlineClass=%@&Calculate+Avios+and+Tier+Points=Calculate+Avios+and+Tier+Points", kBAFlightCalculatorURL, airlineCode, tier, departureAirport, departureAirport, arrivalAirport, arrivalAirport, fareCode];
+	
+	NSURL *url = [NSURL URLWithString:urlString];
+	
+	NSError *error = nil;
+	
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowed timeoutInterval:60.0];
+	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+	[request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+	[request setHTTPMethod:@"POST"];
+	
+	if (!error) {
+		NSURLSession *session = [NSURLSession sharedSession];
+		
+		ResponseBlock block = [self responseBlock];
+		
+		NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:block];
+		
+		[task resume];
+	}
+}
+
+- (ResponseBlock)responseBlock {
+	ResponseBlock block = ^(NSData *data, NSURLResponse *response, NSError *error) {
+		if ([data length] > 0 && error == nil) {
+			NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+			
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				[self searchStringForAviosAndTP:responseString];
+			}];
+			
+		} else if ([data length] == 0 && error == nil) {
+			//[self noNewData];
+		} else if (error != nil && error.code == NSURLErrorTimedOut) {
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				//[self.delegate unableToDownload];
+			}];
+		} else if (error != nil){
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+				//[self.delegate unableToDownload];
+			}];
+		};};
+	
+	return block;
+}
+
+- (void)searchStringForAviosAndTP:(NSString *)responseString {
+	NSError *error = nil;
+	NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<td>[0-9]{1,6}</td>" options:NSRegularExpressionCaseInsensitive error:&error];
+	
+	if (error) {
+		NSLog(@"%@", error);
+	} else {
+		NSArray *matches = [regex matchesInString:responseString options:0 range:NSMakeRange(0, responseString.length)];
+		
+		for (NSTextCheckingResult *result in matches) {
+			NSString *string = [responseString substringToIndex:result.range.location+result.range.length-5];
+			string = [string substringFromIndex:result.range.location+4];
+			
+			NSLog(@"%@", string);
+		}
+	}
 }
 
 #pragma mark - Navigation

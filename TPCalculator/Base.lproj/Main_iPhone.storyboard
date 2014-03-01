@@ -123,7 +123,13 @@
                             <outlet property="delegate" destination="SPM-PQ-jAO" id="4bd-OA-Etd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Form" id="RKv-Vk-C1B"/>
+                    <navigationItem key="navigationItem" title="Form" id="RKv-Vk-C1B">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="tad-w3-CpX">
+                            <connections>
+                                <action selector="requestTierPointsAndAvios:" destination="SPM-PQ-jAO" id="k4E-NQ-Wde"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="eyb-7a-aZx" kind="push" identifier="TierSegue" id="4e6-PP-xIj"/>
                         <segue destination="zXb-Ih-CLL" kind="push" identifier="AirlineSegue" id="hIR-x8-teW"/>

@@ -61,6 +61,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	[self.delegate travelClassViewController:self didSelectFareCode:self.fareCodes[indexPath.row]];
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 /*
