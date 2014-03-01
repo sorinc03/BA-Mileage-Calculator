@@ -15,7 +15,6 @@
 		B57DC1CA18C2173D009B35B3 /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1C918C2173D009B35B3 /* SCAppDelegate.m */; };
 		B57DC1CD18C2173D009B35B3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B57DC1CB18C2173D009B35B3 /* Main_iPhone.storyboard */; };
 		B57DC1D018C2173D009B35B3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B57DC1CE18C2173D009B35B3 /* Main_iPad.storyboard */; };
-		B57DC1D318C2173E009B35B3 /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1D218C2173E009B35B3 /* SCViewController.m */; };
 		B57DC1D518C2173E009B35B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B57DC1D418C2173E009B35B3 /* Images.xcassets */; };
 		B57DC1DC18C2173E009B35B3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57DC1DB18C2173E009B35B3 /* XCTest.framework */; };
 		B57DC1DD18C2173E009B35B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57DC1B918C2173D009B35B3 /* Foundation.framework */; };
@@ -56,8 +55,6 @@
 		B57DC1C918C2173D009B35B3 /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
 		B57DC1CC18C2173D009B35B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B57DC1CF18C2173D009B35B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B57DC1D118C2173D009B35B3 /* SCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
-		B57DC1D218C2173E009B35B3 /* SCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
 		B57DC1D418C2173E009B35B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B57DC1DA18C2173E009B35B3 /* TPCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57DC1DB18C2173E009B35B3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -144,9 +141,7 @@
 				B57DC1C918C2173D009B35B3 /* SCAppDelegate.m */,
 				B57DC1CB18C2173D009B35B3 /* Main_iPhone.storyboard */,
 				B57DC1CE18C2173D009B35B3 /* Main_iPad.storyboard */,
-				B57DC1D118C2173D009B35B3 /* SCViewController.h */,
 				B57DC1F618C2179C009B35B3 /* Form */,
-				B57DC1D218C2173E009B35B3 /* SCViewController.m */,
 				B57DC1D418C2173E009B35B3 /* Images.xcassets */,
 				B57DC1C018C2173D009B35B3 /* Supporting Files */,
 			);
@@ -329,7 +324,6 @@
 				B57DC20718C21D8A009B35B3 /* SCTierCell.m in Sources */,
 				B57DC20A18C21D94009B35B3 /* SCAirlineCell.m in Sources */,
 				B57DC1F918C217C2009B35B3 /* SCFormCell.m in Sources */,
-				B57DC1D318C2173E009B35B3 /* SCViewController.m in Sources */,
 				B57DC1F518C2177D009B35B3 /* SCFormViewController.m in Sources */,
 				B57DC1FD18C21D49009B35B3 /* SCTierViewController.m in Sources */,
 				B57DC1C618C2173D009B35B3 /* main.m in Sources */,
@@ -549,6 +543,7 @@
 				B57DC1ED18C2173E009B35B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B57DC1EE18C2173E009B35B3 /* Build configuration list for PBXNativeTarget "TPCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +552,7 @@
 				B57DC1F018C2173E009B35B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
