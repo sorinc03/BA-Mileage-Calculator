@@ -24,6 +24,9 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 @property (nonatomic, strong) NSDictionary *airlineDetails;
 @property (nonatomic, strong) NSString *selectedAirline;
 @property (nonatomic, strong) NSString *fareCode;
+@property (nonatomic, strong) NSString *tier;
+@property (nonatomic, strong) NSString *departureAirport;
+@property (nonatomic, strong) NSString *arrivalAirport;
 
 @end
 
@@ -43,6 +46,10 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
     [super viewDidLoad];
     
 	self.formTitles = @[@"BA Tier", @"Airline", @"Origin", @"Destination", @"Class"];
+	
+	self.tier = @"Blue";
+	self.fareCode = @"G";
+	self.selectedAirline = @"British Airways";
 	
 	NSError *error = nil;
 	
@@ -83,6 +90,15 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	SCFormCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
 	
 	cell.propertyTitle.attributedText = [[NSAttributedString alloc] initWithString:self.formTitles[indexPath.row]];
+	cell.textField.tag = indexPath.row;
+	
+	if (indexPath.row == 0) {
+		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.tier];
+	} else if (indexPath.row == 1) {
+		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.selectedAirline];
+	} else if (indexPath.row == 4) {
+		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.fareCode];
+	}
 	
     return cell;
 }
@@ -106,25 +122,28 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 #pragma mark - Form Detail Delegates
 
 - (void)tierViewController:(SCTierViewController *)viewController didSelectTier:(NSString *)tier {
-	
+	self.tier = tier;
+	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)airlineViewController:(SCAirlineViewController *)viewController didSelectAirline:(NSString *)airline {
 	self.selectedAirline = airline;
+	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)travelClassViewController:(SCTravelClassViewController *)viewController didSelectFareCode:(NSString *)code {
 	self.fareCode = code;
+	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - NSURLSession Connection
 
 - (IBAction)requestTierPointsAndAvios:(id)sender {
-	NSString *departureAirport = @"LHR";
-	NSString *arrivalAirport = @"SYD";
-	NSString *airlineCode = @"BA";//self.airlineDetails[@"Airlines"][self.selectedAirline][@"Code"];
-	NSString *fareCode = @"J";//self.fareCode;
-	NSString *tier = @"Gold";
+	NSString *departureAirport = self.departureAirport;
+	NSString *arrivalAirport = self.arrivalAirport;
+	NSString *airlineCode = self.airlineDetails[@"Airlines"][self.selectedAirline][@"Code"];
+	NSString *fareCode = self.fareCode;
+	NSString *tier = self.tier;
 	
 	NSString *urlString = [NSString stringWithFormat:@"%@?eId=199001&marketingAirline=%@&tier=%@&departureAirportFull=%@&departureAirport=%@&arrivalAirportFull=%@&arrivalAirport=%@&airlineClass=%@&Calculate+Avios+and+Tier+Points=Calculate+Avios+and+Tier+Points", kBAFlightCalculatorURL, airlineCode, tier, departureAirport, departureAirport, arrivalAirport, arrivalAirport, fareCode];
 	
@@ -133,9 +152,6 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	NSError *error = nil;
 	
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowed timeoutInterval:60.0];
-	[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-	[request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-	[request setHTTPMethod:@"POST"];
 	
 	if (!error) {
 		NSURLSession *session = [NSURLSession sharedSession];
@@ -188,6 +204,36 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 			NSLog(@"%@", string);
 		}
 	}
+}
+
+#pragma mark - UITextField Delegate Methods
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+	
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+	if (textField.tag == 2) {
+		self.departureAirport = textField.text;
+	}
+	
+	else if (textField.tag == 3) {
+		self.arrivalAirport = textField.text;
+	}
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+	return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	[textField resignFirstResponder];
+	
+	return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+	return range.location < 3;
 }
 
 #pragma mark - Navigation
