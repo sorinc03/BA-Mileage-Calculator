@@ -64,7 +64,6 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	[self.delegate airlineViewController:self didSelectAirline:self.airlines[indexPath.row]];
-	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Navigation
