@@ -21,12 +21,15 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 @interface SCFormViewController () <TierSegue, AirlineSegue, FareSegue, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *formTitles;
+@property (nonatomic, strong) NSArray *resultTitles;
 @property (nonatomic, strong) NSDictionary *airlineDetails;
 @property (nonatomic, strong) NSString *selectedAirline;
 @property (nonatomic, strong) NSString *fareCode;
 @property (nonatomic, strong) NSString *tier;
 @property (nonatomic, strong) NSString *departureAirport;
 @property (nonatomic, strong) NSString *arrivalAirport;
+@property (nonatomic, strong) NSString *tierPoints;
+@property (nonatomic, strong) NSString *avios;
 
 @end
 
@@ -46,10 +49,14 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
     [super viewDidLoad];
     
 	self.formTitles = @[@"BA Tier", @"Airline", @"Origin", @"Destination", @"Class"];
+	self.resultTitles = @[@"Avios", @"Tier Points"];
 	
 	self.tier = @"Blue";
 	self.fareCode = @"G";
 	self.selectedAirline = @"British Airways";
+	self.departureAirport = @"LHR";
+	self.tierPoints = @"0";
+	self.avios = @"0";
 	
 	NSError *error = nil;
 	
@@ -74,13 +81,13 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.formTitles.count;
+    return section == 0 ? self.formTitles.count : 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,15 +96,27 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	
 	SCFormCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
 	
-	cell.propertyTitle.attributedText = [[NSAttributedString alloc] initWithString:self.formTitles[indexPath.row]];
-	cell.textField.tag = indexPath.row;
+	if (indexPath.section == 0) {
+		cell.propertyTitle.attributedText = [[NSAttributedString alloc] initWithString:self.formTitles[indexPath.row]];
+		cell.textField.tag = indexPath.row;
+		
+		if (indexPath.row == 0) {
+			cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.tier];
+		} else if (indexPath.row == 1) {
+			cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.selectedAirline];
+		} else if (indexPath.row == 4) {
+			cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.fareCode];
+		}
+	}
 	
-	if (indexPath.row == 0) {
-		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.tier];
-	} else if (indexPath.row == 1) {
-		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.selectedAirline];
-	} else if (indexPath.row == 4) {
-		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.fareCode];
+	else if (indexPath.section == 1) {
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+		
+		cell.propertyTitle.attributedText = [[NSAttributedString alloc] initWithString:self.resultTitles[indexPath.row]];
+		
+		NSString *value = indexPath.row == 0 ? self.avios : self.tierPoints;
+		
+		cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:value];
 	}
 	
     return cell;
@@ -110,12 +129,14 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	if (indexPath.row == 0) {
-		[self performSegueWithIdentifier:@"TierSegue" sender:nil];
-	} else if (indexPath.row == 1) {
-		[self performSegueWithIdentifier:@"AirlineSegue" sender:nil];
-	} else if (indexPath.row == 4) {
-		[self performSegueWithIdentifier:@"ClassSegue" sender:nil];
+	if (indexPath.section == 0) {
+		if (indexPath.row == 0) {
+			[self performSegueWithIdentifier:@"TierSegue" sender:nil];
+		} else if (indexPath.row == 1) {
+			[self performSegueWithIdentifier:@"AirlineSegue" sender:nil];
+		} else if (indexPath.row == 4) {
+			[self performSegueWithIdentifier:@"ClassSegue" sender:nil];
+		}
 	}
 }
 
@@ -197,11 +218,24 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	} else {
 		NSArray *matches = [regex matchesInString:responseString options:0 range:NSMakeRange(0, responseString.length)];
 		
+		if (matches.count != 2) {
+			self.tierPoints = @"0";
+			self.avios = @"0";
+			
+			[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+		}
+		
 		for (NSTextCheckingResult *result in matches) {
 			NSString *string = [responseString substringToIndex:result.range.location+result.range.length-5];
 			string = [string substringFromIndex:result.range.location+4];
 			
-			NSLog(@"%@", string);
+			if ([string integerValue] >= 500) {
+				self.avios = string;
+			} else {
+				self.tierPoints = string;
+				
+				[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+			}
 		}
 	}
 }
