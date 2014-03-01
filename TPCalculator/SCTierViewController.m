@@ -63,7 +63,6 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	[self.delegate tierViewController:self didSelectTier:self.tiers[indexPath.row]];
-	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Navigation

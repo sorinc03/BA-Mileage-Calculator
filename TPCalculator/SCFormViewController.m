@@ -144,7 +144,10 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 
 - (void)tierViewController:(SCTierViewController *)viewController didSelectTier:(NSString *)tier {
 	self.tier = tier;
-	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+	
+	[viewController.navigationController popViewControllerAnimated:YES];
+	
+	[self performSelector:@selector(refreshAirlineAndFare:) withObject:@[[NSIndexPath indexPathForRow:0 inSection:0]] afterDelay:0.0];
 }
 
 - (void)airlineViewController:(SCAirlineViewController *)viewController didSelectAirline:(NSString *)airline {
@@ -156,13 +159,16 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	[self performSelector:@selector(refreshAirlineAndFare:) withObject:@[[NSIndexPath indexPathForRow:1 inSection:0], [NSIndexPath indexPathForRow:4 inSection:0]] afterDelay:0.0];
 }
 
-- (void)refreshAirlineAndFare:(NSArray *)array {
-	[self.tableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
 - (void)travelClassViewController:(SCTravelClassViewController *)viewController didSelectFareCode:(NSString *)code {
 	self.fareCode = code;
-	[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:4 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+	
+	[viewController.navigationController popViewControllerAnimated:YES];
+	
+	[self performSelector:@selector(refreshAirlineAndFare:) withObject:@[[NSIndexPath indexPathForRow:4 inSection:0]] afterDelay:0.0];
+}
+
+- (void)refreshAirlineAndFare:(NSArray *)array {
+	[self.tableView reloadRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - NSURLSession Connection
