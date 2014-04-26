@@ -55,6 +55,7 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	self.fareCode = @"G";
 	self.selectedAirline = @"British Airways";
 	self.departureAirport = @"LHR";
+	self.arrivalAirport = @"LHR";
 	self.tierPoints = @"0";
 	self.avios = @"0";
 	
@@ -97,6 +98,8 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	SCFormCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
 	
 	if (indexPath.section == 0) {
+		cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+		
 		cell.propertyTitle.attributedText = [[NSAttributedString alloc] initWithString:self.formTitles[indexPath.row]];
 		cell.textField.tag = indexPath.row;
 		
@@ -106,6 +109,10 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 			cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.selectedAirline];
 		} else if (indexPath.row == 4) {
 			cell.propertyValue.attributedText = [[NSAttributedString alloc] initWithString:self.fareCode];
+		}
+		
+		if ([self canEditCellAtIndexPath:indexPath]) {
+			cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		}
 	}
 	
