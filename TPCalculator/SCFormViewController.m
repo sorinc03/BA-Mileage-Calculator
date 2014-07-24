@@ -8,15 +8,13 @@
 
 #import "SCFormViewController.h"
 #import "SCFormCell.h"
-#import "SCTravelClassViewController.h"
-#import "SCAirlineViewController.h"
 #define kFormDetailCellIdentifier @"FormDetailCell"
 #define kFormEditCellIdentifier @"FormEditCell"
 #define kBAFlightCalculatorURL @"http://www.britishairways.com/travel/flight-calculator/public/en_gb"
 
 typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *error);
 
-@interface SCFormViewController () <TierViewControllerDelegate, AirlineSegue, FareSegue, UITextFieldDelegate>
+@interface SCFormViewController () <TierViewControllerDelegate, AirlineViewControllerDelegate, TravelClassViewControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *formTitles;
 @property (nonatomic, strong) NSArray *resultTitles;
@@ -155,7 +153,7 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	[self performSelector:@selector(refreshAirlineAndFare:) withObject:@[[NSIndexPath indexPathForRow:0 inSection:0]] afterDelay:0.0];
 }
 
-- (void)airlineViewController:(SCAirlineViewController *)viewController didSelectAirline:(NSString *)airline {
+- (void)airlineViewController:(AirlineViewController *)viewController didSelectAirline:(NSString *)airline {
 	self.selectedAirline = airline;
 	self.fareCode = self.airlineDetails[@"Airlines"][airline][@"Fares"][0];
 	
@@ -164,7 +162,7 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 	[self performSelector:@selector(refreshAirlineAndFare:) withObject:@[[NSIndexPath indexPathForRow:1 inSection:0], [NSIndexPath indexPathForRow:4 inSection:0]] afterDelay:0.0];
 }
 
-- (void)travelClassViewController:(SCTravelClassViewController *)viewController didSelectFareCode:(NSString *)code {
+- (void)travelClassViewController:(TravelClassViewController *)viewController didSelectFareCode:(NSString *)code {
 	self.fareCode = code;
 	
 	[viewController.navigationController popViewControllerAnimated:YES];
@@ -305,13 +303,13 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 			return [obj1 compare:obj2 options:NSCaseInsensitiveSearch];
 		}];
 		
-		SCAirlineViewController *viewController = [segue destinationViewController];
+		AirlineViewController *viewController = [segue destinationViewController];
 		
 		viewController.airlines = airlineNames;
 		viewController.delegate = self;
 		
 	} else if ([[segue identifier] isEqualToString:@"ClassSegue"]) {
-		SCTravelClassViewController *viewController = [segue destinationViewController];
+		TravelClassViewController *viewController = [segue destinationViewController];
 		
 		NSDictionary *airlineDictionary = self.airlineDetails[@"Airlines"][self.selectedAirline];
 		

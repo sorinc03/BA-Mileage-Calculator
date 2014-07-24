@@ -23,13 +23,14 @@
 		B57DC1E818C2173E009B35B3 /* TPCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1E718C2173E009B35B3 /* TPCalculatorTests.m */; };
 		B57DC1F218C21747009B35B3 /* Airlines in Resources */ = {isa = PBXBuildFile; fileRef = B57DC1F118C21747009B35B3 /* Airlines */; };
 		B57DC1F518C2177D009B35B3 /* SCFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1F418C2177D009B35B3 /* SCFormViewController.m */; };
-		B57DC1F918C217C2009B35B3 /* SCFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1F818C217C2009B35B3 /* SCFormCell.m */; };
-		B57DC20018C21D5B009B35B3 /* SCAirlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1FF18C21D5B009B35B3 /* SCAirlineViewController.m */; };
-		B57DC20318C21D72009B35B3 /* SCTravelClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC20218C21D72009B35B3 /* SCTravelClassViewController.m */; };
 		B5D73B7F19818FA30067EE53 /* TierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B7E19818FA30067EE53 /* TierCell.swift */; };
 		B5D73B81198191A70067EE53 /* AirlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B80198191A70067EE53 /* AirlineCell.swift */; };
 		B5D73B83198191E80067EE53 /* FareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B82198191E80067EE53 /* FareCell.swift */; };
 		B5D73B85198194750067EE53 /* TierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B84198194750067EE53 /* TierViewController.swift */; };
+		B5D73B8719819A6D0067EE53 /* AirlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B8619819A6D0067EE53 /* AirlineViewController.swift */; };
+		B5D73B8919819BA30067EE53 /* TravelClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B8819819BA30067EE53 /* TravelClassViewController.swift */; };
+		B5D73B8B19819D260067EE53 /* FormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B8A19819D260067EE53 /* FormCell.swift */; };
+		B5D73B8D19819D970067EE53 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B8C19819D970067EE53 /* FormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,17 +65,15 @@
 		B57DC1F118C21747009B35B3 /* Airlines */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Airlines; sourceTree = "<group>"; };
 		B57DC1F318C2177D009B35B3 /* SCFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFormViewController.h; sourceTree = "<group>"; };
 		B57DC1F418C2177D009B35B3 /* SCFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFormViewController.m; sourceTree = "<group>"; };
-		B57DC1F718C217C2009B35B3 /* SCFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFormCell.h; sourceTree = "<group>"; };
-		B57DC1F818C217C2009B35B3 /* SCFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFormCell.m; sourceTree = "<group>"; };
-		B57DC1FE18C21D5B009B35B3 /* SCAirlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAirlineViewController.h; sourceTree = "<group>"; };
-		B57DC1FF18C21D5B009B35B3 /* SCAirlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAirlineViewController.m; sourceTree = "<group>"; };
-		B57DC20118C21D72009B35B3 /* SCTravelClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTravelClassViewController.h; sourceTree = "<group>"; };
-		B57DC20218C21D72009B35B3 /* SCTravelClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTravelClassViewController.m; sourceTree = "<group>"; };
 		B5D73B7B19818EFF0067EE53 /* TPCalculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPCalculator-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5D73B7E19818FA30067EE53 /* TierCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierCell.swift; sourceTree = "<group>"; };
 		B5D73B80198191A70067EE53 /* AirlineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineCell.swift; sourceTree = "<group>"; };
 		B5D73B82198191E80067EE53 /* FareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FareCell.swift; sourceTree = "<group>"; };
 		B5D73B84198194750067EE53 /* TierViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierViewController.swift; sourceTree = "<group>"; };
+		B5D73B8619819A6D0067EE53 /* AirlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineViewController.swift; sourceTree = "<group>"; };
+		B5D73B8819819BA30067EE53 /* TravelClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelClassViewController.swift; sourceTree = "<group>"; };
+		B5D73B8A19819D260067EE53 /* FormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCell.swift; sourceTree = "<group>"; };
+		B5D73B8C19819D970067EE53 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +181,8 @@
 				B57DC1FA18C21D13009B35B3 /* FormDetailViewControllers */,
 				B57DC1F318C2177D009B35B3 /* SCFormViewController.h */,
 				B57DC1F418C2177D009B35B3 /* SCFormViewController.m */,
-				B57DC1F718C217C2009B35B3 /* SCFormCell.h */,
-				B57DC1F818C217C2009B35B3 /* SCFormCell.m */,
+				B5D73B8C19819D970067EE53 /* FormViewController.swift */,
+				B5D73B8A19819D260067EE53 /* FormCell.swift */,
 			);
 			name = Form;
 			sourceTree = "<group>";
@@ -193,10 +192,8 @@
 			children = (
 				B57DC20418C21D77009B35B3 /* Cells */,
 				B5D73B84198194750067EE53 /* TierViewController.swift */,
-				B57DC1FE18C21D5B009B35B3 /* SCAirlineViewController.h */,
-				B57DC1FF18C21D5B009B35B3 /* SCAirlineViewController.m */,
-				B57DC20118C21D72009B35B3 /* SCTravelClassViewController.h */,
-				B57DC20218C21D72009B35B3 /* SCTravelClassViewController.m */,
+				B5D73B8619819A6D0067EE53 /* AirlineViewController.swift */,
+				B5D73B8819819BA30067EE53 /* TravelClassViewController.swift */,
 			);
 			name = FormDetailViewControllers;
 			sourceTree = "<group>";
@@ -311,14 +308,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B57DC20018C21D5B009B35B3 /* SCAirlineViewController.m in Sources */,
-				B57DC20318C21D72009B35B3 /* SCTravelClassViewController.m in Sources */,
 				B5D73B85198194750067EE53 /* TierViewController.swift in Sources */,
+				B5D73B8D19819D970067EE53 /* FormViewController.swift in Sources */,
 				B5D73B7F19818FA30067EE53 /* TierCell.swift in Sources */,
 				B57DC1CA18C2173D009B35B3 /* SCAppDelegate.m in Sources */,
-				B57DC1F918C217C2009B35B3 /* SCFormCell.m in Sources */,
+				B5D73B8919819BA30067EE53 /* TravelClassViewController.swift in Sources */,
+				B5D73B8719819A6D0067EE53 /* AirlineViewController.swift in Sources */,
 				B5D73B81198191A70067EE53 /* AirlineCell.swift in Sources */,
 				B57DC1F518C2177D009B35B3 /* SCFormViewController.m in Sources */,
+				B5D73B8B19819D260067EE53 /* FormCell.swift in Sources */,
 				B57DC1C618C2173D009B35B3 /* main.m in Sources */,
 				B5D73B83198191E80067EE53 /* FareCell.swift in Sources */,
 			);

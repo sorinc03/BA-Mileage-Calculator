@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FormDetailCell" id="rYd-z0-2py" customClass="SCFormCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FormDetailCell" id="rYd-z0-2py" customClass="FormCell" customModule="TPCalculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rYd-z0-2py" id="j2f-Yt-U09">
@@ -63,7 +63,7 @@
                                     <outlet property="propertyValue" destination="ODI-rK-1O5" id="48R-VB-TyM"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FormEditCell" id="Md5-27-I0k" customClass="SCFormCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FormEditCell" id="Md5-27-I0k" customClass="FormCell" customModule="TPCalculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="163" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Md5-27-I0k" id="N37-KE-4pd">
@@ -140,7 +140,7 @@
         <!--Airlines-->
         <scene sceneID="i0b-Fy-Y91">
             <objects>
-                <tableViewController storyboardIdentifier="AirlineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zXb-Ih-CLL" customClass="SCAirlineViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AirlineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zXb-Ih-CLL" customClass="AirlineViewController" customModule="TPCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eLu-xi-OTw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,7 +201,7 @@
         <!--Class-->
         <scene sceneID="Q0j-DL-wfJ">
             <objects>
-                <tableViewController storyboardIdentifier="TravelClassViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fhi-l8-vAA" customClass="SCTravelClassViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TravelClassViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fhi-l8-vAA" customClass="TravelClassViewController" customModule="TPCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YsD-QO-Wnb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
