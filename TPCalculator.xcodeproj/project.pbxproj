@@ -24,12 +24,12 @@
 		B57DC1F218C21747009B35B3 /* Airlines in Resources */ = {isa = PBXBuildFile; fileRef = B57DC1F118C21747009B35B3 /* Airlines */; };
 		B57DC1F518C2177D009B35B3 /* SCFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1F418C2177D009B35B3 /* SCFormViewController.m */; };
 		B57DC1F918C217C2009B35B3 /* SCFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1F818C217C2009B35B3 /* SCFormCell.m */; };
-		B57DC1FD18C21D49009B35B3 /* SCTierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1FC18C21D49009B35B3 /* SCTierViewController.m */; };
 		B57DC20018C21D5B009B35B3 /* SCAirlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC1FF18C21D5B009B35B3 /* SCAirlineViewController.m */; };
 		B57DC20318C21D72009B35B3 /* SCTravelClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC20218C21D72009B35B3 /* SCTravelClassViewController.m */; };
-		B57DC20718C21D8A009B35B3 /* SCTierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC20618C21D8A009B35B3 /* SCTierCell.m */; };
-		B57DC20A18C21D94009B35B3 /* SCAirlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC20918C21D94009B35B3 /* SCAirlineCell.m */; };
-		B57DC20D18C21DAA009B35B3 /* SCFareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B57DC20C18C21DAA009B35B3 /* SCFareCell.m */; };
+		B5D73B7F19818FA30067EE53 /* TierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B7E19818FA30067EE53 /* TierCell.swift */; };
+		B5D73B81198191A70067EE53 /* AirlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B80198191A70067EE53 /* AirlineCell.swift */; };
+		B5D73B83198191E80067EE53 /* FareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B82198191E80067EE53 /* FareCell.swift */; };
+		B5D73B85198194750067EE53 /* TierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D73B84198194750067EE53 /* TierViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,18 +66,15 @@
 		B57DC1F418C2177D009B35B3 /* SCFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFormViewController.m; sourceTree = "<group>"; };
 		B57DC1F718C217C2009B35B3 /* SCFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFormCell.h; sourceTree = "<group>"; };
 		B57DC1F818C217C2009B35B3 /* SCFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFormCell.m; sourceTree = "<group>"; };
-		B57DC1FB18C21D49009B35B3 /* SCTierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTierViewController.h; sourceTree = "<group>"; };
-		B57DC1FC18C21D49009B35B3 /* SCTierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTierViewController.m; sourceTree = "<group>"; };
 		B57DC1FE18C21D5B009B35B3 /* SCAirlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAirlineViewController.h; sourceTree = "<group>"; };
 		B57DC1FF18C21D5B009B35B3 /* SCAirlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAirlineViewController.m; sourceTree = "<group>"; };
 		B57DC20118C21D72009B35B3 /* SCTravelClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTravelClassViewController.h; sourceTree = "<group>"; };
 		B57DC20218C21D72009B35B3 /* SCTravelClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTravelClassViewController.m; sourceTree = "<group>"; };
-		B57DC20518C21D8A009B35B3 /* SCTierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTierCell.h; sourceTree = "<group>"; };
-		B57DC20618C21D8A009B35B3 /* SCTierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTierCell.m; sourceTree = "<group>"; };
-		B57DC20818C21D94009B35B3 /* SCAirlineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAirlineCell.h; sourceTree = "<group>"; };
-		B57DC20918C21D94009B35B3 /* SCAirlineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAirlineCell.m; sourceTree = "<group>"; };
-		B57DC20B18C21DAA009B35B3 /* SCFareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFareCell.h; sourceTree = "<group>"; };
-		B57DC20C18C21DAA009B35B3 /* SCFareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFareCell.m; sourceTree = "<group>"; };
+		B5D73B7B19818EFF0067EE53 /* TPCalculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPCalculator-Bridging-Header.h"; sourceTree = "<group>"; };
+		B5D73B7E19818FA30067EE53 /* TierCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierCell.swift; sourceTree = "<group>"; };
+		B5D73B80198191A70067EE53 /* AirlineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineCell.swift; sourceTree = "<group>"; };
+		B5D73B82198191E80067EE53 /* FareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FareCell.swift; sourceTree = "<group>"; };
+		B5D73B84198194750067EE53 /* TierViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +148,7 @@
 		B57DC1C018C2173D009B35B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B5D73B7B19818EFF0067EE53 /* TPCalculator-Bridging-Header.h */,
 				B57DC1F118C21747009B35B3 /* Airlines */,
 				B57DC1C118C2173D009B35B3 /* TPCalculator-Info.plist */,
 				B57DC1C218C2173D009B35B3 /* InfoPlist.strings */,
@@ -194,8 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B57DC20418C21D77009B35B3 /* Cells */,
-				B57DC1FB18C21D49009B35B3 /* SCTierViewController.h */,
-				B57DC1FC18C21D49009B35B3 /* SCTierViewController.m */,
+				B5D73B84198194750067EE53 /* TierViewController.swift */,
 				B57DC1FE18C21D5B009B35B3 /* SCAirlineViewController.h */,
 				B57DC1FF18C21D5B009B35B3 /* SCAirlineViewController.m */,
 				B57DC20118C21D72009B35B3 /* SCTravelClassViewController.h */,
@@ -207,12 +204,9 @@
 		B57DC20418C21D77009B35B3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B57DC20518C21D8A009B35B3 /* SCTierCell.h */,
-				B57DC20618C21D8A009B35B3 /* SCTierCell.m */,
-				B57DC20818C21D94009B35B3 /* SCAirlineCell.h */,
-				B57DC20918C21D94009B35B3 /* SCAirlineCell.m */,
-				B57DC20B18C21DAA009B35B3 /* SCFareCell.h */,
-				B57DC20C18C21DAA009B35B3 /* SCFareCell.m */,
+				B5D73B7E19818FA30067EE53 /* TierCell.swift */,
+				B5D73B80198191A70067EE53 /* AirlineCell.swift */,
+				B5D73B82198191E80067EE53 /* FareCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -319,14 +313,14 @@
 			files = (
 				B57DC20018C21D5B009B35B3 /* SCAirlineViewController.m in Sources */,
 				B57DC20318C21D72009B35B3 /* SCTravelClassViewController.m in Sources */,
+				B5D73B85198194750067EE53 /* TierViewController.swift in Sources */,
+				B5D73B7F19818FA30067EE53 /* TierCell.swift in Sources */,
 				B57DC1CA18C2173D009B35B3 /* SCAppDelegate.m in Sources */,
-				B57DC20D18C21DAA009B35B3 /* SCFareCell.m in Sources */,
-				B57DC20718C21D8A009B35B3 /* SCTierCell.m in Sources */,
-				B57DC20A18C21D94009B35B3 /* SCAirlineCell.m in Sources */,
 				B57DC1F918C217C2009B35B3 /* SCFormCell.m in Sources */,
+				B5D73B81198191A70067EE53 /* AirlineCell.swift in Sources */,
 				B57DC1F518C2177D009B35B3 /* SCFormViewController.m in Sources */,
-				B57DC1FD18C21D49009B35B3 /* SCTierViewController.m in Sources */,
 				B57DC1C618C2173D009B35B3 /* main.m in Sources */,
+				B5D73B83198191E80067EE53 /* FareCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,10 +455,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TPCalculator/TPCalculator-Prefix.pch";
 				INFOPLIST_FILE = "TPCalculator/TPCalculator-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TPCalculator/TPCalculator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,10 +473,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TPCalculator/TPCalculator-Prefix.pch";
 				INFOPLIST_FILE = "TPCalculator/TPCalculator-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TPCalculator/TPCalculator-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

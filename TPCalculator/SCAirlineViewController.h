@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class SCAirlineCell;
-
 @interface SCAirlineViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *airlines;

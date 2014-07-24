@@ -7,7 +7,6 @@
 //
 
 #import "SCTravelClassViewController.h"
-#import "SCFareCell.h"
 
 #define kFareCellIdentifier @"FareCell"
 
@@ -51,7 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCFareCell *cell = [tableView dequeueReusableCellWithIdentifier:kFareCellIdentifier forIndexPath:indexPath];
+    FareCell *cell = [tableView dequeueReusableCellWithIdentifier:kFareCellIdentifier forIndexPath:indexPath];
     
 	cell.travelClassNameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.fareNames[indexPath.row]];
 	cell.fareCodeLabel.attributedText = [[NSAttributedString alloc] initWithString:self.fareCodes[indexPath.row]];

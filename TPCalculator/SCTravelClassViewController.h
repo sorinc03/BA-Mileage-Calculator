@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class SCFareCell;
-
 @interface SCTravelClassViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *fareNames;

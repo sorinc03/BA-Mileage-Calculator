@@ -8,17 +8,15 @@
 
 #import "SCFormViewController.h"
 #import "SCFormCell.h"
-#import "SCTierViewController.h"
 #import "SCTravelClassViewController.h"
 #import "SCAirlineViewController.h"
-
 #define kFormDetailCellIdentifier @"FormDetailCell"
 #define kFormEditCellIdentifier @"FormEditCell"
 #define kBAFlightCalculatorURL @"http://www.britishairways.com/travel/flight-calculator/public/en_gb"
 
 typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *error);
 
-@interface SCFormViewController () <TierSegue, AirlineSegue, FareSegue, UITextFieldDelegate>
+@interface SCFormViewController () <TierViewControllerDelegate, AirlineSegue, FareSegue, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *formTitles;
 @property (nonatomic, strong) NSArray *resultTitles;
@@ -149,7 +147,7 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 
 #pragma mark - Form Detail Delegates
 
-- (void)tierViewController:(SCTierViewController *)viewController didSelectTier:(NSString *)tier {
+- (void)tierViewController:(TierViewController *)viewController didSelectTier:(NSString *)tier {
 	self.tier = tier;
 	
 	[viewController.navigationController popViewControllerAnimated:YES];
@@ -297,7 +295,7 @@ typedef void (^ResponseBlock)(NSData *data, NSURLResponse *response, NSError *er
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([[segue identifier] isEqualToString:@"TierSegue"]) {
-		SCTierViewController *viewController = [segue destinationViewController];
+		TierViewController *viewController = [segue destinationViewController];
 		
 		viewController.tiers = self.airlineDetails[@"Tiers"];
 		viewController.delegate = self;

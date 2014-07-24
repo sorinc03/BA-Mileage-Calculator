@@ -7,7 +7,6 @@
 //
 
 #import "SCAirlineViewController.h"
-#import "SCAirlineCell.h"
 
 #define kAirlineCellIdentifier @"AirlineCell"
 
@@ -53,7 +52,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SCAirlineCell *cell = [tableView dequeueReusableCellWithIdentifier:kAirlineCellIdentifier forIndexPath:indexPath];
+    AirlineCell *cell = [tableView dequeueReusableCellWithIdentifier:kAirlineCellIdentifier forIndexPath:indexPath];
     
 	cell.airlineNameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.airlines[indexPath.row]];
 	
